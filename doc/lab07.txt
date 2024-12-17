@@ -1,0 +1,116 @@
+Лабораторна робота №7. Фунції
+
+Руденок Андрій, група КН-924в
+
+Мета роботи:
+Навчитися використовувати функції для розбиття програми на логічні модулі, покращити структурованість та читабельність коду. Розробити програму, яка використовує функції для підрахунку голосних літер у введеному рядку.
+
+Завдання:
+Переробити програму, створену в лабораторній роботі №6, так, щоб у ній використовувалися функції для:
+	1. Обробки вхідних даних.
+	2. Підрахунку кількості голосних букв.
+
+Структура директорії проєкту:
+	lab07/
+	├── Makefile
+	├── README.md
+	├── doc/
+	│   └── lab07.txt
+	└── src/
+	    └── main.c
+
+Хід роботи
+1. Аналіз змін
+У лабораторній роботі №6 вся логіка програми була реалізована в основній функції main. У цій роботі програма розбита на окремі функції, які виконують вузько спеціалізовані завдання:
+
+1. countVowels(const char *text) — функція, що підраховує кількість голосних букв у заданому рядку.
+2. processInput(int argc, char *argv[], char *text) — функція для обробки введення з командного рядка або генерації випадкового рядка.
+3. main(int argc, char *argv[]) — головна функція програми, що викликає функції для обробки введення та підрахунку голосних.
+
+Використання відладчика:
+Під час виконання роботи було використано lldb для перевірки роботи програми.
+
+Команди відладчика:
+run — запуск програми.
+frame variable — перегляд змінних у поточному кадрі.
+next — виконання наступного рядка програми.
+Приклад роботи відладчика:
+Запуск програми:
+
+(lldb) breakpoint set --file main.c --line 121
+(lldb) run
+Process 11032 launched: '/home/osboxes/Desktop/programing-rudenok/lab07/dist/main.bin' (x86_64)
+Process 11032 stopped
+* thread #1, name = 'main.bin', stop reason = breakpoint 1.1
+    frame #0: 0x00005555555552b8 main.binprocessInput(argc=1, argv=0x00007fffffffde08, text="RWTAeebGnuoyBXITqJmKUBxoEVtpVFyoBsqhwrOlLcJOCTHSDwCZXCPBxKRUppitjyAhsQtFvcuXWDPbZTCzvraSDtMSlwlWxoe") at main.c:121:9
+   118 	        for (int i = 0; i < MAX_LEN - 1; i++) {
+   119 	            text[i] = charset[rand() % (int)(sizeof(charset) - 1)];
+   120 	        }
+-> 121 	        text[MAX_LEN - 1] = '\0';  // Завершуємо рядок
+   122 	    }
+   123 	}
+   124 	
+(lldb) frame variable
+(int) argc = 1
+(char **) argv = 0x00007fffffffde08
+(char *) text = 0x00007fffffffdc60 "RWTAeebGnuoyBXITqJmKUBxoEVtpVFyoBsqhwrOlLcJOCTHSDwCZXCPBxKRUppitjyAhsQtFvcuXWDPbZTCzvraSDtMSlwlWxoe"
+(const char[53]) charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+(lldb) next
+Process 11032 stopped
+* thread #1, name = 'main.bin', stop reason = step over
+    frame #0: 0x00005555555552c0 main.binprocessInput(argc=1, argv=0x00007fffffffde08, text="RWTAeebGnuoyBXITqJmKUBxoEVtpVFyoBsqhwrOlLcJOCTHSDwCZXCPBxKRUppitjyAhsQtFvcuXWDPbZTCzvraSDtMSlwlWxoe") at main.c:123:1
+   120 	        }
+   121 	        text[MAX_LEN - 1] = '\0';  // Завершуємо рядок
+   122 	    }
+-> 123 	}
+   124 	
+(lldb) next
+Process 11032 stopped
+* thread #1, name = 'main.bin', stop reason = step over
+    frame #0: 0x0000555555555199 main.binmain(argc=1, argv=0x00007fffffffde08) at main.c:70:35
+   67  	    processInput(argc, argv, text);
+   68  	
+   69  	    // Підрахунок голосних
+-> 70  	    int vowel_count = countVowels(text);
+   71  	
+   72  	    return 0;  // Завершення програми
+   73  	}
+(lldb) next
+Process 11032 stopped
+* thread #1, name = 'main.bin', stop reason = step over
+    frame #0: 0x00005555555551a8 main.binmain(argc=1, argv=0x00007fffffffde08) at main.c:72:5
+   69  	    // Підрахунок голосних
+   70  	    int vowel_count = countVowels(text);
+   71  	
+-> 72  	    return 0;  // Завершення програми
+   73  	}
+   74  	
+   75  	/**
+(lldb) frame variable
+(int) argc = 1
+(char **) argv = 0x00007fffffffde08
+(char[100]) text = "RWTAeebGnuoyBXITqJmKUBxoEVtpVFyoBsqhwrOlLcJOCTHSDwCZXCPBxKRUppitjyAhsQtFvcuXWDPbZTCzvraSDtMSlwlWxoe"
+(int) vowel_count = 19 
+
+
+
+Результати налагодження:
+(lldb) frame variable
+(int) argc = 1
+(char **) argv = 0x00007fffffffde08
+(char *) text = 0x00007fffffffdc60 "RWTAeebGnuoyBXITqJmKUBxoEVtpVFyoBsqhwrOlLcJOCTHSDwCZXCPBxKRUppitjyAhsQtFvcuXWDPbZTCzvraSDtMSlwlWxoe"
+(int) vowel_count = 19
+
+
+
+Результати виконання програми:
+Для випадкового тексту "RWTAeebGnuoyBXITqJmKUBxoEVtpVFyoBsqhwrOlLcJOCTHSDwCZXCPBxKRUppitjyAhsQtFvcuXWDPbZTCzvraSDtMSlwlWxoe" було отримано результат:
+Кількість голосних: 19
+
+
+Висновки:
+Реалізовано програму, яка коректно використовує функції для виконання задач.
+Забезпечено роботу програми з аргументами командного рядка.
+Освоєно роботу з генерацією випадкових рядків.
+Навички роботи з відладчиком lldb допомогли зрозуміти механізм виконання програми та зміну стану змінних під час її виконання.
+Програма працює коректно та відповідає вимогам лабораторної роботи.
