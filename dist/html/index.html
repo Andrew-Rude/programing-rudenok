@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="uk">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторна робота №8.2: Лабораторна робота №10. Об&#39;єднання масивів</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Лабораторна робота №8.2<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">Демонстрація документування коду засобами `doxygen`</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Завантаження...</div>
+<div class="SRStatus" id="Searching">Пошук...</div>
+<div class="SRStatus" id="NoMatches">Нічого не знайдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Лабораторна робота №10. Об'єднання масивів </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_README"></a> </p>
+<h2><a class="anchor" id="autotoc_md10"></a>
+Розробник: Андрій Р.І., КН-924В</h2>
+<h1><a class="anchor" id="autotoc_md11"></a>
+Опис лабораторної роботи:</h1>
+<p>Метою цієї лабораторної роботи є розробка програми на мові C для об'єднання двох масивів цілих чисел. Завдання полягає в тому, щоб переписати елементи з масивів у новий масив за певним порядком: спочатку два елементи з масиву <code>mas2</code>, потім два елементи з масиву <code>mas1</code>. Після виконання програма має вивести результат через відлагодник.</p>
+<h1><a class="anchor" id="autotoc_md12"></a>
+Структура проекту:</h1>
+<p>├── dist │   ├── coverage.html │   ├── main.bin │   ├── test.bin │   ├── test.profdata │   └── test.profraw ├── doc │   └── lab10.md ├── Doxyfile ├── Makefile ├── README.md ├── src │   ├── lib.c │   ├── <a class="el" href="lib_8h_source.html">lib.h</a> │   └── <a class="el" href="main_8c.html" title="Реалізація програми для підрахунку голосних букв у заданому слові чи реченні. *.">main.c</a> └── test └── test.c</p>
+<h1><a class="anchor" id="autotoc_md13"></a>
+Опис файлів:</h1>
+<ol type="1">
+<li>**<code>lib.c</code>** — цей файл містить реалізацію основних функцій, таких як <code>mergeArrays</code>, яка об'єднує два масиви.</li>
+<li>**<code><a class="el" href="lib_8h_source.html">lib.h</a></code>** — заголовочний файл, що містить оголошення функцій, використовуваних у програмі.</li>
+<li>**<code><a class="el" href="main_8c.html" title="Реалізація програми для підрахунку голосних букв у заданому слові чи реченні. *.">main.c</a></code>** — головний файл, що ініціалізує масиви, викликає функцію для їх об'єднання та виводить результат.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md14"></a>
+Опис функцій:</h1>
+<ol type="1">
+<li><p class="startli"><b>mergeArrays()</b></p><ul>
+<li>Опис: Функція, що об'єднує два масиви цілих чисел: спочатку два елементи з масиву <code>mas2</code>, потім два елементи з масиву <code>mas1</code>.</li>
+<li>Вхід: два масиви цілих чисел <code>mas1</code> і <code>mas2</code>, їхні розміри <code>N</code> і <code>M</code>.</li>
+<li>Вихід: новий масив, що містить елементи з обох масивів.</li>
+</ul>
+<p class="startli"><b>Прототип функції:</b> ```c void mergeArrays(int *mas1, int N, int *mas2, int M, int &lt;strong&gt;result, int *resultSize);</p>
+</li>
+<li>**main()<ul>
+<li>Опис: Головна функція програми, що ініціалізує масиви, викликає функцію mergeArrays(), а потім виводить результат.</li>
+</ul>
+</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md15"></a>
+Тестування:</h1>
+<ul>
+<li>Програма проходить автоматичне тестування, яке включає перевірку правильності розміру і вмісту результатного масиву після виклику функції mergeArrays.</li>
+</ul>
+<p><b>Приклад тесту:</b> START_TEST(test_mergeArrays) { int mas1[] = {1, 7, 4, 8, 3}; int mas2[] = {6, 6, 9, 9}; int *result = NULL; int resultSize = 0;</p>
+<p>mergeArrays(mas1, 5, mas2, 4, &amp;result, &amp;resultSize);</p>
+<p>ck_assert_int_eq(resultSize, 9); // Перевірка розміру результату ck_assert_int_eq(result[0], 6); // Перевірка перших елементів ck_assert_int_eq(result[1], 6); ck_assert_int_eq(result[2], 9); ck_assert_int_eq(result[3], 9); ck_assert_int_eq(result[4], 1); ck_assert_int_eq(result[5], 7); ck_assert_int_eq(result[6], 4); ck_assert_int_eq(result[7], 8); ck_assert_int_eq(result[8], 3); // Перевірка останніх елементів } END_TEST</p>
+<h1><a class="anchor" id="autotoc_md16"></a>
+Використання Valgrind:</h1>
+<ul>
+<li>Для перевірки програми на витоки пам'яті використовується утиліта Valgrind. Це дозволяє переконатися, що програма коректно виділяє та звільняє пам'ять.</li>
+</ul>
+<p><b>Запуск програми з Valgrind:</b> valgrind &ndash;leak-check=full ./dist/main.bin Це дозволило побачити, чи є витоки пам'яті під час виконання програми.</p>
+<h1><a class="anchor" id="autotoc_md17"></a>
+Алгоритм об'єднання масивів:</h1>
+<ol type="1">
+<li>Створення вказівників на два вхідних масиви та результатний масив.</li>
+<li>Ітерація по елементах обох масивів, запис двох елементів з масиву mas2, потім двох елементів з масиву mas1.</li>
+<li>Якщо в одному з масивів залишаються елементи, вони копіюються в результат.</li>
+<li>Повернення результату з новим розміром масиву. <b>Приклад алгоритму:</b> Вхід: mas1[] = {1, 7, 4, 8, 3}, mas2[] = {6, 6, 9, 9} Результат після обробки: result[] = {6, 6, 9, 9, 1, 7, 4, 8, 3}</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md18"></a>
+Висновок:</h1>
+<p>У ході виконання лабораторної роботи було продемонстровано використання динамічного виділення пам'яті, обробка масивів через покажчики, а також правильне тестування і перевірка програми на витоки пам'яті. Програма об'єднує два масиви в один за заданим порядком та ефективно працює з пам'яттю, що підтверджується використанням Valgrind. Документація створена за допомогою Doxygen, що дозволяє чітко описати функції та структуру проекту. </p>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="uk">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторна робота №8.2: Лабораторна робота №8.2. Функції: Підрахунок голосних букв</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Лабораторна робота №8.2<span id="projectnumber">&#160;0.1</span>
+   </div>
+   <div id="projectbrief">Демонстрація документування коду засобами `doxygen`</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Пошук');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Завантаження...</div>
+<div class="SRStatus" id="Searching">Пошук...</div>
+<div class="SRStatus" id="NoMatches">Нічого не знайдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Лабораторна робота №8.2. Функції: Підрахунок голосних букв</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> </p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Розробник: Андрій Р.І., КН-924В</h2>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Індивідуальне завдання:</h1>
+<p>Розробити програму, яка підраховує кількість голосних букв у заданому слові чи реченні. Програма має реалізувати перевірку кожного символа введеного рядка та визначення, чи є він голосною буквою. Якщо рядок не передається, програма генерує випадковий рядок для обробки.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Структура проекту:</h1>
+<p>lab08/ ├── dist │   ├── html │ └── main.bin ├── doc │ ├── lab08.docx │ ├── lab08.pdf │ └── lab08.md ├── Doxyfile ├── Makefile ├── README.md └── src └── <a class="el" href="main_8c.html" title="Реалізація програми для підрахунку голосних букв у заданому слові чи реченні. *.">main.c</a></p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Опис функцій:</h1>
+<ol type="1">
+<li><b>countVowels()</b> - функція для підрахунку кількості голосних букв у заданому рядку. Перевіряє кожен символ на відповідність голосним літерам.</li>
+<li><b>processInput()</b> - функція для обробки вхідних даних з командного рядка. Якщо аргументи не передані, генерується випадковий рядок.</li>
+<li><b>main()</b> - головна функція програми, яка отримує рядок з командного рядка або генерує випадковий рядок, а потім підраховує кількість голосних.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Вхідні дані:</h1>
+<ul>
+<li><b>argc</b>: кількість аргументів командного рядка.</li>
+<li><b>argv[]</b>: масив аргументів командного рядка. Якщо дані не передані, генерується випадковий рядок.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6"></a>
+Опис програми:</h1>
+<p>Програма приймає рядок як аргумент командного рядка, або, якщо аргументи не передані, генерує випадковий рядок. Далі, програма перевіряє кожен символ цього рядка на голосні літери (як великі, так і малі) і підраховує їх кількість.</p>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Код:</h1>
+<ul>
+<li><b><a class="el" href="main_8c.html" title="Реалізація програми для підрахунку голосних букв у заданому слові чи реченні. *.">main.c</a></b></li>
+</ul>
+<p>/**</p><ul>
+<li></li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
